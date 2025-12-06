@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IYNO | International Youth Neurosurgical Organization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        neuro: "#38bdf8", // Sky blue for nerve impulses
+                        amber: "#f59e0b", // Gold for prestige
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                        'fade-in': 'fadeIn 1.5s ease-out forwards',
+                        'spin-slow': 'spin 15s linear infinite',
+                        'spin-slower': 'spin 25s linear infinite',
+                        'spin-super-slow': 'spin 35s linear infinite',
+                        'spin-reverse': 'spin 20s linear infinite reverse',
+                        'spin-reverse-slow': 'spin 30s linear infinite reverse',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #020408;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        /* Elegant Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020408; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1a1d24; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38bdf8; 
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative selection:bg-neuro selection:text-black">
+
+    <!-- Ambient Background (Synapse Effect) -->
+    <div class="fixed inset-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <!-- Deep Blue Blob (Cerebral) -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-900/40 rounded-full mix-blend-screen filter blur-[128px] opacity-40 animate-blob"></div>
+        <!-- Cyan Blob (Electric) -->
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-900/30 rounded-full mix-blend-screen filter blur-[128px] opacity-30 animate-blob animation-delay-1000"></div>
+        <!-- Purple Blob (Depth) -->
+        <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-indigo-900/40 rounded-full mix-blend-screen filter blur-[128px] opacity-40 animate-blob animation-delay-2000"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 p-6">
+        <div class="max-w-7xl mx-auto backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl px-6 py-4 flex justify-between items-center shadow-lg shadow-black/20">
+            <div class="flex items-center gap-3">
+                <!-- Logo Mark -->
+                <div class="w-10 h-10 border border-neuro/50 bg-neuro/10 rounded-full flex items-center justify-center">
+                    <img src="/iyno-logo.svg" alt="Logo">
+                </div>
+                <span class="text-lg font-bold tracking-widest font-sans uppercase">IYNO</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm font-light tracking-wide text-gray-300">
+                <!-- <a href="#mission" class="hover:text-neuro transition-colors">The Mission</a> -->
+                <!-- <a href="https://blog.iyno.org" target="_blank" class="hover:text-neuro transition-colors">The Blog</a> -->
+                <!-- <a href="#guides" class="hover:text-neuro transition-colors">Resources</a> -->
+                <a href="https://blog.iyno.org" class="px-5 py-2 bg-neuro/10 hover:bg-neuro/20 border border-neuro/20 hover:border-neuro/50 rounded-full text-xs text-neuro uppercase tracking-widest font-medium transition-all backdrop-blur-sm">
+                Read the Blog
+            </a>
+            
+            <a href="resources.html" class="px-5 py-2 bg-neuro/10 hover:bg-neuro/20 border border-neuro/20 hover:border-neuro/50 rounded-full text-xs text-neuro uppercase tracking-widest font-medium transition-all backdrop-blur-sm">
+                View Downloadable Resources
+            </a>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Hero Section with Spinning Nodes -->
+    <!-- Added pt-40 to push content down significantly, preventing clipping -->
+    <header class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 pt-40 pb-20">
+        
+        <!-- The Orbit Animation (Central Hero Element) -->
+        <div class="relative w-80 h-80 md:w-96 md:h-96 flex items-center justify-center mb-16 animate-fade-in">
+            <!-- Center Node (The Brain/IYNO) -->
+            <div class="absolute w-28 h-28 rounded-full border border-neuro/30 flex items-center justify-center bg-black/40 z-10 backdrop-blur-sm shadow-[0_0_30px_rgba(56,189,248,0.2)]">
+                <span class="font-serif text-2xl tracking-widest font-bold text-white">IYNO</span>
+            </div>
+            
+            <!-- Orbit 1 (Smallest - Gray) -->
+            <!-- Reduced size to bring it closer -->
+            <div class="absolute w-[115%] h-[115%] border border-white/5 rounded-full animate-spin-slow">
+                <div class="absolute -top-3 left-1/2 w-4 h-4 bg-gray-500 rounded-full transform -translate-x-1/2 shadow-[0_0_15px_rgba(255,255,255,0.5)]"></div>
+            </div>
+
+            <!-- Orbit 2 (New - Medium - Amber/Gold) -->
+            <!-- Reduced size to bring it closer -->
+            <div class="absolute w-[130%] h-[130%] border border-white/5 rounded-full rotate-45 animate-spin-reverse">
+                <div class="absolute -bottom-2 left-1/2 w-3 h-3 bg-amber-500 rounded-full transform -translate-x-1/2 shadow-[0_0_15px_rgba(245,158,11,0.6)]"></div>
+            </div>
+            
+            <!-- Orbit 3 (Original - Large - Neuro Blue) -->
+            <!-- Reduced size to bring it closer -->
+            <div class="absolute w-[145%] h-[145%] border border-white/10 rounded-full animate-spin-slower">
+                <div class="absolute top-1/4 -right-2 w-3 h-3 bg-neuro rounded-full shadow-[0_0_15px_rgba(56,189,248,0.8)]"></div>
+            </div>
+
+            <!-- Orbit 4 (New - Extra Large - White) -->
+            <!-- Reduced size to bring it closer -->
+            <div class="absolute w-[160%] h-[160%] border border-white/5 rounded-full animate-spin-reverse-slow">
+                <div class="absolute top-1/2 -left-3 w-2 h-2 bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)]"></div>
+            </div>
+
+             <!-- Orbit 5 (New - Massive - Purple Faint) -->
+             <!-- Reduced size to bring it closer -->
+             <div class="absolute w-[180%] h-[180%] border border-white/[0.02] rounded-full animate-spin-super-slow">
+                <div class="absolute -bottom-4 right-1/3 w-4 h-4 bg-indigo-500/50 rounded-full blur-[1px]"></div>
+            </div>
+        </div>
+
+        <!-- Hero Text -->
+        <div class="max-w-4xl mx-auto space-y-6 animate-fade-in relative z-20 mt-8">
+            <div class="inline-block px-4 py-1 rounded-full border border-white/10 bg-white/5 text-gray-400 text-[10px] font-sans tracking-[0.3em] uppercase mb-2">
+                Established 2024
+            </div>
+            <h1 class="text-5xl md:text-7xl font-serif font-medium tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-gray-500 leading-[1.1]">
+                First Steps into <br />
+                <span class="italic text-white">The Operating Room.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-xl mx-auto font-light leading-relaxed font-sans">
+                The hidden curriculum of neurosurgery, decoded. 
+                Connecting the next generation of surgeons to the resources, mentors, and global pathways they need.
+            </p>
+            
+            <div class="pt-8 flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="https://blog.iyno.org" class="group relative px-8 py-4 bg-white text-black font-semibold rounded-full overflow-hidden transition-all hover:scale-105">
+                    <span class="relative z-10 font-sans">Enter the Library</span>
+                    <div class="absolute inset-0 bg-neuro opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                </a>
+                <a href="#mission" class="text-sm text-gray-400 hover:text-white transition-colors uppercase tracking-widest font-sans">
+                    Explore the Resources
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mission / Stats -->
+    <section id="mission" class="w-full px-4 mb-24 relative z-10">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-8 rounded-2xl bg-white/[0.02] backdrop-blur-lg border border-white/5 text-center hover:border-neuro/30 transition-colors duration-500 group">
+                <h3 class="text-2xl font-serif text-gray-200 mb-2 group-hover:text-neuro transition-colors">Clarity</h3>
+                <p class="text-gray-500 text-xs uppercase tracking-widest font-sans">Decoding The Path</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-white/[0.02] backdrop-blur-lg border border-white/5 text-center hover:border-neuro/30 transition-colors duration-500 group">
+                <h3 class="text-2xl font-serif text-gray-200 mb-2 group-hover:text-neuro transition-colors">Access</h3>
+                <p class="text-gray-500 text-xs uppercase tracking-widest font-sans">Democratizing Knowledge</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-white/[0.02] backdrop-blur-lg border border-white/5 text-center hover:border-neuro/30 transition-colors duration-500 group">
+                <h3 class="text-2xl font-serif text-gray-200 mb-2 group-hover:text-neuro transition-colors">Global</h3>
+                <p class="text-gray-500 text-xs uppercase tracking-widest font-sans">No Borders</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="guides" class="py-24 px-4 bg-white/[0.02]">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="space-y-4">
+                    <span class="font-sans text-neuro tracking-widest text-xs uppercase">The Ecosystem</span>
+                    <h2 class="text-4xl md:text-5xl font-serif">Start Your Journey</h2>
+                </div>
+                <p class="text-gray-400 max-w-md text-sm md:text-right font-light">
+                    We bridge the gap between "Interested in the brain" and "Applying for Residency."
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1: The Blog -->
+<a href="https://blog.iyno.org" class="group relative min-h-[400px] cursor-pointer block">
+    <div class="absolute -inset-0.5 bg-gradient-to-b from-neuro to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+    <div class="relative h-full bg-[#050505] rounded-2xl p-8 flex flex-col border border-white/10 group-hover:border-white/20 transition-all">
+        <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 text-2xl">⚡</div>
+        <h3 class="text-2xl font-serif mb-2">The Blog</h3>
+        <p class="text-xs font-sans text-neuro mb-6 uppercase tracking-wider">blog.iyno.org</p>
+        <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">
+            Deep dives into specialties, interviews with residents, and breakdowns of complex papers for students.
+        </p>
+        <span class="inline-flex items-center text-sm text-white group-hover:translate-x-2 transition-transform">
+            Read Articles &rarr;
+        </span>
+    </div>
+</a>
+
+<!-- Card 2: Residency Roadmap -->
+<a href="/roadmap" class="group relative min-h-[400px] cursor-pointer block">
+    <div class="absolute -inset-0.5 bg-gradient-to-b from-blue-500 to-cyan-400 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+    <div class="relative h-full bg-[#050505] rounded-2xl p-8 flex flex-col border border-white/10 group-hover:border-white/20 transition-all">
+        <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 text-2xl">🗺️</div>
+        <h3 class="text-2xl font-serif mb-2">Residency Roadmap</h3>
+        <p class="text-xs font-sans text-blue-400 mb-6 uppercase tracking-wider">International Guides</p>
+        <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">
+            Specific, step-by-step guides on how to match into Neurosurgery in different countries (UK, Germany, USA).
+        </p>
+        <span class="inline-flex items-center text-sm text-white group-hover:translate-x-2 transition-transform">
+            View Guides &rarr;
+        </span>
+    </div>
+</a>
+
+<!-- Card 3: Student Toolkit -->
+<a href="/toolkit" class="group relative min-h-[400px] cursor-pointer block">
+    <div class="absolute -inset-0.5 bg-gradient-to-b from-pink-500 to-purple-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+    <div class="relative h-full bg-[#050505] rounded-2xl p-8 flex flex-col border border-white/10 group-hover:border-white/20 transition-all">
+        <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-6 text-2xl">🧠</div>
+        <h3 class="text-2xl font-serif mb-2">Student Toolkit</h3>
+        <p class="text-xs font-sans text-purple-400 mb-6 uppercase tracking-wider">High Yield</p>
+        <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">
+            Anatomy checklists, neurological exam cheatsheets, and email templates for contacting surgeons.
+        </p>
+        <span class="inline-flex items-center text-sm text-white group-hover:translate-x-2 transition-transform">
+            Open Toolkit &rarr;
+        </span>
+    </div>
+</a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="border-t border-white/10 bg-black/40 backdrop-blur-lg pt-20 pb-10">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h2 class="text-3xl font-serif mb-6">Neurosurgery is a marathon.</h2>
+            <p class="text-gray-400 mb-10 max-w-lg mx-auto font-light">
+                IYNO is an independent student initiative. We are building the resources we wish we had when we started.
+            </p>
+            
+            <a href="mailto:contact@iyno.org" class="inline-flex items-center gap-2 text-neuro hover:text-white border-b border-neuro/30 pb-1 transition-all">
+                <span>Get Involved</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+
+            <div class="mt-20 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 border-t border-white/5 pt-8 font-sans uppercase tracking-widest">
+                <p>&copy; 2025 IYNO.</p>
+                <p class="mt-2 md:mt-0">Bratislava &bull; Global</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
